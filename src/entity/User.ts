@@ -1,20 +1,14 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, PrimaryColumn} from "typeorm";
 import {Rating} from "./Rating";
 
 @Entity({name: "Users"})
 export class User {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryColumn({unique: true})
+    userName: string;
 
-    @Column()
-    firstName: string;
-
-    @Column()
-    lastName: string;
-
-    @Column()
-    age: number;
+    @Column({length: 60})
+    password: string;
 
     @OneToMany(type => Rating, rating => rating.user)
     ratings: Rating[];

@@ -14,6 +14,6 @@ export class Rating {
     motivation: string;
 
     @ManyToOne(type => User, user => user.ratings, {nullable: false})
-    @JoinColumn()
+    @JoinColumn({name: "userName"})
     user: User;
 }

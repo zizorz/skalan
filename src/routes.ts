@@ -7,25 +7,29 @@ export const Routes = [
         method: "get",
         route: "/users",
         controller: UserController,
-        action: "all"
+        action: "all",
+        auth: true
     },
     {
         method: "get",
         route: "/users/:id",
         controller: UserController,
-        action: "one"
+        action: "one",
+        auth: true
     },
     {
         method: "post",
         route: "/users",
         controller: UserController,
-        action: "save"
+        action: "save",
+        auth: true,
     },
     {
         method: "delete",
         route: "/users",
         controller: UserController,
-        action: "remove"
+        action: "remove",
+        auth: true
     },
 
     //Rating
@@ -33,18 +37,21 @@ export const Routes = [
         method: "get",
         route: "/ratings",
         controller: RatingController,
-        action: "all"
+        action: "all",
+        auth: false
     },
     {
         method: "get",
         route: "/ratings/:id",
         controller: RatingController,
-        action: "one"
+        action: "one",
+        auth: false
     },
     {
         method: "post",
         route: "/ratings",
         controller: RatingController,
-        action: "save"
-    },
+        action: "save",
+        auth: true
+    }
 ];
