@@ -8,6 +8,7 @@ import {User} from "./entity/User";
 import {Rating} from "./entity/Rating";
 import * as passport from "passport";
 import {BasicStrategy} from "passport-http";
+import * as bcrypt from "bcrypt";
 
 createConnection().then(async connection => {
 
@@ -20,7 +21,7 @@ createConnection().then(async connection => {
         async function(username : string, password: string, done: any) {
             let user = await getRepository(User).findOne({userName: username});
             if (!user) { return done(null, false); }
-            if (password !== user.password) { return done(null, false); }
+            if (!await bcrypt.compare(password, user.password)){ return done(null, false); }
             return done(null, user);
         }
     ));
