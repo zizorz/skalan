@@ -1,8 +1,9 @@
 import {Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne} from "typeorm";
 import {User} from "./User";
+import {BaseEntity} from "./BaseEntity";
 
 @Entity({name: "Ratings"})
-export class Rating {
+export class Rating extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;

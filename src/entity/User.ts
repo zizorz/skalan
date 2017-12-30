@@ -2,13 +2,16 @@ import {Entity, PrimaryGeneratedColumn, Column, OneToMany, PrimaryColumn, Before
 import {Rating} from "./Rating";
 import * as bcrypt from "bcrypt";
 import {Constants} from "../Constants";
+import {Exclude} from "class-transformer";
+import {BaseEntity} from "./BaseEntity";
 
 @Entity({name: "Users"})
-export class User {
+export class User extends BaseEntity {
 
     @PrimaryColumn({unique: true})
     userName: string;
 
+    @Exclude()
     @Column({length: 60})
     password: string;
 
