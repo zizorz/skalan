@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import {Rating} from "./Rating";
 
-@Entity()
+@Entity({name: "Users"})
 export class User {
 
     @PrimaryGeneratedColumn()
