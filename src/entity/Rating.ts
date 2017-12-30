@@ -1,0 +1,19 @@
+import {Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne} from "typeorm";
+import {User} from "./User";
+
+@Entity()
+export class Rating {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column({nullable: false})
+    grade: number;
+
+    @Column({length: 300})
+    motivation: string;
+
+    @ManyToOne(type => User, user => user.ratings, {nullable: false})
+    @JoinColumn()
+    user: User;
+}
