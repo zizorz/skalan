@@ -10,6 +10,12 @@ export class Rating {
     @Column({nullable: false})
     grade: number;
 
+    @Column({nullable: false, length: 300})
+    what: string;
+
+    @Column({nullable: false, length: 300})
+    where: string;
+
     @Column({length: 300})
     motivation: string;
 

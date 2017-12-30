@@ -49,12 +49,14 @@ createConnection().then(async connection => {
 
     let user = new User();
     user.userName = "Timber";
-    user.password = "dev1234"
+    user.password = "dev1234";
     await connection.manager.save(user);
 
     let rating = new Rating();
     rating.grade = 5;
     rating.motivation = "Not great";
+    rating.what = "Pizza Calzone";
+    rating.where = "Pizzeria Milano, Stockholm";
     rating.user = user;
     await connection.manager.save(rating);
 
