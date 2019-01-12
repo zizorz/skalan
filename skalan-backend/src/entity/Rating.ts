@@ -17,6 +17,9 @@ export class Rating extends BaseEntity {
     @Column({nullable: false, length: 300})
     where: string;
 
+    @Column({nullable: false, length: 300})
+    imageUrl: string;
+
     @Column({length: 300})
     motivation: string;
 

@@ -60,12 +60,18 @@ createConnection().then(async connection => {
     user.password = "dev1234";
     await connection.manager.save(user);
 
+    let user2 = new User();
+    user2.userName = "Ramsey";
+    user2.password = "dev1234";
+    await connection.manager.save(user2);
+
     let rating = new Rating();
     rating.grade = 5;
     rating.motivation = "Jag åt en Calzone med rådjur. Pizzakanten var utsökt med en krispig botten. Tomatsåsen var lagom kraftig men aningen för söt. Köttet var skivat i fina tunna skivor men saknade smak. Som helhet var det en bra måltid.";
     rating.what = "Pizza Calzone";
     rating.where = "Pizzeria Milano, Stockholm";
     rating.user = user;
+    rating.imageUrl = "http://www.fnstatic.co.uk/images/content/recipe/calzone-pizza.jpg";
     await connection.manager.save(rating);
 
     rating = new Rating();
@@ -73,7 +79,8 @@ createConnection().then(async connection => {
     rating.motivation = "Pasta Alfredo är båda gott och går snabbt att göra. Rätten uppskattas av vuxna och barn och passar både till vardagsmiddagen och till fest.";
     rating.what = "Pasta Alfredo";
     rating.where = "Vezzo, Umeå";
-    rating.user = user;
+    rating.user = user2;
+    rating.imageUrl = 'https://icase.azureedge.net/imagevaultfiles/id_186593/cf_259/pasta-alfredo-724258.jpg';
     await connection.manager.save(rating);
 
     console.log("Express server has started on port 3000");
