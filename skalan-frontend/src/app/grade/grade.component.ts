@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grade',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grade.component.scss']
 })
 export class GradeComponent implements OnInit {
+
+  @Input() grade: number;
 
   constructor() { }
 

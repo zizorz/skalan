@@ -10,6 +10,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { ListRatingsComponent } from './list-ratings/list-ratings.component';
 import { RatingCardComponent } from './rating-card/rating-card.component';
 import { GradeComponent } from './grade/grade.component';
+import { SkalaComponent } from './skala/skala.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GradeComponent } from './grade/grade.component';
     AppNavComponent,
     ListRatingsComponent,
     RatingCardComponent,
-    GradeComponent
+    GradeComponent,
+    SkalaComponent
   ],
   imports: [
     BrowserModule,
