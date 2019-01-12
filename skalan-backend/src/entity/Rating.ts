@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne, BeforeInsert} from "typeorm";
 import {User} from "./User";
 import {BaseEntity} from "./BaseEntity";
 
@@ -23,7 +23,15 @@ export class Rating extends BaseEntity {
     @Column({length: 300})
     motivation: string;
 
+    @Column({nullable: false})
+    date: Date;
+
     @ManyToOne(type => User, user => user.ratings, {nullable: false})
     @JoinColumn({name: "userName"})
     user: User;
+
+    @BeforeInsert()
+    public setDate () {
+        this.date = new Date();
+    }
 }
