@@ -19,6 +19,6 @@
     "typeorm": "0.1.9"
   },
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/app.ts"
   }
 }
