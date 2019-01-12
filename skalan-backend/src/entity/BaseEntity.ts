@@ -1,10 +1,9 @@
 import {classToPlain} from "class-transformer";
 
 
-export class BaseEntity {
+export abstract class BaseEntity {
 
-    public toJSON() {
+    public toJson() {
         return classToPlain(this);
     }
-
 }

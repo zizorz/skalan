@@ -1,6 +1,7 @@
 import {getRepository} from "typeorm";
 import {NextFunction, Request, Response} from "express";
 import {Rating} from "../entity/Rating";
+import {plainToClass} from "class-transformer";
 
 export class RatingController {
 
@@ -15,6 +16,13 @@ export class RatingController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        return this.ratingRepository.save(request.body);
+        try {
+            const rating = plainToClass(Rating, request.body as Rating);
+            console.log(rating);
+            rating.user = request.user;
+            return this.ratingRepository.save(rating);
+        } catch(error) {
+
+        }
     }
 }

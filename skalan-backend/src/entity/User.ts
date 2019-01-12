@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany, PrimaryColumn, BeforeInsert, BeforeUpdate} from "typeorm";
+import {Entity, Column, OneToMany, PrimaryColumn, BeforeInsert, BeforeUpdate} from "typeorm";
 import {Rating} from "./Rating";
 import * as bcrypt from "bcrypt";
 import {Constants} from "../Constants";

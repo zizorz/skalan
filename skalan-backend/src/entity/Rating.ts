@@ -2,9 +2,9 @@ import {Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne, BeforeIns
 import {User} from "./User";
 import {BaseEntity} from "./BaseEntity";
 
+
 @Entity({name: "Ratings"})
 export class Rating extends BaseEntity {
-
     @PrimaryGeneratedColumn()
     id: number;
 
