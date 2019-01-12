@@ -11,6 +11,7 @@ import { ListRatingsComponent } from './list-ratings/list-ratings.component';
 import { RatingCardComponent } from './rating-card/rating-card.component';
 import { GradeComponent } from './grade/grade.component';
 import { SkalaComponent } from './skala/skala.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SkalaComponent } from './skala/skala.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,

@@ -1,16 +1,16 @@
 <mat-card class="card">
   <mat-card-header>
-    <app-grade [grade]="6" mat-card-avatar></app-grade>
-    <mat-card-title>Pizza Calzone</mat-card-title>
-    <mat-card-subtitle>Pizzeria Milano, Carlshem</mat-card-subtitle>
+    <app-grade [grade]="rating.grade" mat-card-avatar></app-grade>
+    <mat-card-title>{{rating.what}}</mat-card-title>
+    <mat-card-subtitle>{{rating.where}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="http://www.fnstatic.co.uk/images/content/recipe/calzone-pizza.jpg" alt="Pizza Calzone">
   <mat-card-content>
     <p>
-      Jag åt en Calzone med rådjur. Pizzakanten var utsökt med en krispig botten. Tomatsåsen var lagom kraftig men aningen för söt. Köttet var skivat i fina tunna skivor men saknade smak. Som helhet var det en bra måltid.
+      {{rating.motivation}}
     </p>
   </mat-card-content>
   <mat-card-footer class="footer">
-    <div>Janne</div>
+    <div>{{rating.user.userName}}</div>
   </mat-card-footer>
 </mat-card>

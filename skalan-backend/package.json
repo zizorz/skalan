@@ -8,7 +8,7 @@
     "typescript": "2.5.2"
   },
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.3",
     "body-parser": "^1.18.1",
     "class-transformer": "^0.1.8",
     "express": "^4.15.4",

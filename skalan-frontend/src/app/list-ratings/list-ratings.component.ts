@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Rating } from '../models/Rating';
 
 @Component({
   selector: 'app-list-ratings',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRatingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
+
+  private ratings: Rating[];
 
   ngOnInit() {
+    this.apiService.getRatings().subscribe(ratings => {
+      this.ratings = ratings;
+    });
   }
 
 }

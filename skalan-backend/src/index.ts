@@ -16,6 +16,12 @@ createConnection().then(async connection => {
     const app = express();
     app.use(bodyParser.json());
 
+    app.use((req, res, next) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
     // setup passport
     passport.use(new BasicStrategy(
         async function(username : string, password: string, done: any) {
@@ -44,6 +50,8 @@ createConnection().then(async connection => {
         }
     });
 
+
+
     // start express server
     app.listen(3000);
 
@@ -54,9 +62,17 @@ createConnection().then(async connection => {
 
     let rating = new Rating();
     rating.grade = 5;
-    rating.motivation = "Not great";
+    rating.motivation = "Jag åt en Calzone med rådjur. Pizzakanten var utsökt med en krispig botten. Tomatsåsen var lagom kraftig men aningen för söt. Köttet var skivat i fina tunna skivor men saknade smak. Som helhet var det en bra måltid.";
     rating.what = "Pizza Calzone";
     rating.where = "Pizzeria Milano, Stockholm";
+    rating.user = user;
+    await connection.manager.save(rating);
+
+    rating = new Rating();
+    rating.grade = 9;
+    rating.motivation = "Pasta Alfredo är båda gott och går snabbt att göra. Rätten uppskattas av vuxna och barn och passar både till vardagsmiddagen och till fest.";
+    rating.what = "Pasta Alfredo";
+    rating.where = "Vezzo, Umeå";
     rating.user = user;
     await connection.manager.save(rating);
 

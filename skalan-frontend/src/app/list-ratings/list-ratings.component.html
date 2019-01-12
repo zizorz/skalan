@@ -1,5 +1,3 @@
 <div class="container">
-  <app-rating-card></app-rating-card>
-  <app-rating-card></app-rating-card>
-  <app-rating-card></app-rating-card>
+  <app-rating-card [rating]=rating *ngFor="let rating of ratings"></app-rating-card>
 </div>
