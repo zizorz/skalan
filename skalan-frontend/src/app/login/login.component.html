@@ -11,7 +11,11 @@
       </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Logga in</button>
+    <div class="row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Logga in</button>
+
+      <mat-spinner class="spinner" mode="indeterminate" *ngIf="loading" [diameter]="25"></mat-spinner>
+    </div>
 
     <div class="error">
       <mat-error *ngIf="failed">

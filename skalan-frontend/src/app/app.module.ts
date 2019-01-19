@@ -14,7 +14,7 @@ import {
   MatListModule,
   MatCardModule,
   MatChipsModule,
-  MatFormFieldModule, MatInputModule
+  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { ListRatingsComponent } from './list-ratings/list-ratings.component';
 import { RatingCardComponent } from './rating-card/rating-card.component';
@@ -52,6 +52,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatChipsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule
   ],
   providers: [],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import {finalize} from "rxjs/internal/operators";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+
   private failed = false;
+  private loading = false;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
@@ -23,15 +26,27 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.disable();
     const input = this.form.getRawValue();
+
     this.authService.login(input.username, input.password)
-      .subscribe(result => {
-          if (result) {
-            this.router.navigate(['skala']);
-          } else {
-            this.failed = true;
-          }
-      }, error => this.failed = true);
+      .pipe(finalize(() => this.enable()))
+      .subscribe(
+        result => this.router.navigate(['skala']),
+        error => this.failed = true
+      );
   }
+
+  private disable() {
+    this.loading = true;
+    this.form.disable();
+  }
+
+  private enable() {
+    this.loading = false;
+    this.form.enable();
+  }
+
+
 
 }

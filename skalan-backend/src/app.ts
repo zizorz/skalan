@@ -40,8 +40,6 @@ createConnection().then(async connection => {
                 result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
             } else if (result !== null && result !== undefined) {
                 res.json(result);
-            } else {
-                res.error(new Error("Internal Server Error"))
             }
         };
 

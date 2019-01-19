@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { map } from 'rxjs/internal/operators';
-import {Observable} from "rxjs/index";
+import {delay, map} from 'rxjs/internal/operators';
+import {Observable, throwError} from 'rxjs/index';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +19,16 @@ export class AuthService {
           const auth = window.btoa(username + ':' + password);
           localStorage.setItem('user', auth);
           return true;
-        } else {
-          return false;
         }
+        throwError('Login failed');
       }));
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('user');
   }
 
+  isLoggedIn(): boolean {
+    return localStorage.getItem('user') != null;
+  }
 }
