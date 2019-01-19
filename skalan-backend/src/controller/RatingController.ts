@@ -9,7 +9,7 @@ export class RatingController {
     private ratingRepository = getRepository(Rating);
 
     async all(request: Request, response: Response, next: NextFunction) {
-        return this.ratingRepository.find({ relations: ["user"] });
+        return this.ratingRepository.find({ order: {date: "DESC"}, relations: ["user"] });
     }
 
     async one(request: Request, response: Response, next: NextFunction) {
