@@ -22,4 +22,8 @@ export class ApiService {
     return this.httpClient.post<User>(`${this.baseUrl}/login`, {username, password});
   }
 
+  sendRating(rating: Rating) {
+    return this.httpClient.post(`${this.baseUrl}/ratings`, rating);
+  }
+
 }

@@ -1,3 +1,45 @@
-<p>
-  submission works!
-</p>
+<div class="container">
+  <form class="form" [formGroup]="form" (ngSubmit)="send()">
+    <mat-form-field class="field">
+      <input matInput formControlName="what" placeholder="Vad">
+      <mat-hint>T.ex. Pasta Alfredo</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input matInput formControlName="where" placeholder="Var">
+      <mat-hint>T.ex. Operakällaren, Stockholm</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <textarea class="textarea" matInput formControlName="motivation" placeholder="Motivering"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <mat-select formControlName="grade" placeholder="Betyg på skalan">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+        <mat-option value="6">6</mat-option>
+        <mat-option value="7">7</mat-option>
+        <mat-option value="8">8</mat-option>
+        <mat-option value="9">9</mat-option>
+        <mat-option value="10">10</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Skicka in</button>
+
+      <mat-spinner class="spinner" mode="indeterminate" *ngIf="loading" [diameter]="25"></mat-spinner>
+    </div>
+
+    <div class="error">
+      <mat-error *ngIf="failed">
+        Det gick inte att skicka in
+      </mat-error>
+    </div>
+
+  </form>
+</div>

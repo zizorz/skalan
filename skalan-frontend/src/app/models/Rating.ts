@@ -6,5 +6,6 @@ export class Rating {
     what: string;
     where: string;
     motivation: string;
+    imageUrl: string;
     user: User;
 }

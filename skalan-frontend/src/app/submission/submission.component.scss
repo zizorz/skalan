@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.textarea {
+  height:100px;
+}
+
+.field {
+  margin-bottom: 15px;
+  width:100%
+}
+
+.form {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error {
+  margin-top: 20px;
+}

@@ -14,16 +14,18 @@ import {
   MatListModule,
   MatCardModule,
   MatChipsModule,
-  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule
+  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSelectModule
 } from '@angular/material';
 import { ListRatingsComponent } from './list-ratings/list-ratings.component';
 import { RatingCardComponent } from './rating-card/rating-card.component';
 import { GradeComponent } from './grade/grade.component';
 import { SkalaComponent } from './skala/skala.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SubmissionComponent } from './submission/submission.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BasicAuthInterceptor } from './interceptors/AuthInterceptor';
+import { ErrorInterceptor } from './interceptors/ErrorInterceptor';
 
 
 @NgModule({
@@ -53,9 +55,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: BasicAuthInterceptor,
+    multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
