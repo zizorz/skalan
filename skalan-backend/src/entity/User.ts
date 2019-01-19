@@ -9,7 +9,7 @@ import {BaseEntity} from "./BaseEntity";
 export class User extends BaseEntity {
 
     @PrimaryColumn({unique: true})
-    userName: string;
+    username: string;
 
     @Exclude()
     @Column({length: 60})

@@ -1,0 +1,24 @@
+<div class="container">
+  <form class="login-form" [formGroup]="form" (ngSubmit)="login()">
+    <div>
+      <mat-form-field class="input">
+        <input matInput formControlName="username" placeholder="Användarnamn">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input">
+        <input matInput formControlName="password" type="password" placeholder="Lösenord">
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Logga in</button>
+
+    <div class="error">
+      <mat-error *ngIf="failed">
+        Det gick inte att logga in
+      </mat-error>
+    </div>
+
+  </form>
+</div>
+

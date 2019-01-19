@@ -1,7 +1,17 @@
 import {UserController} from "./controller/UserController";
 import {RatingController} from "./controller/RatingController";
+import {LoginController} from "./controller/LoginController";
 
 export const Routes = [
+    //Login
+    {
+        method: "post",
+        route: "/login",
+        controller: LoginController,
+        action: "login",
+        auth: false
+    },
+
     //User
     {
         method: "get",

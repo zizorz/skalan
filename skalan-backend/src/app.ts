@@ -25,7 +25,7 @@ createConnection().then(async connection => {
     // setup passport
     passport.use(new BasicStrategy(
         async function(username : string, password: string, done: any) {
-            let user = await getRepository(User).findOne({userName: username});
+            let user = await getRepository(User).findOne({username: username});
             if (!user) { return done(null, false); }
             if (!await bcrypt.compare(password, user.password)){ return done(null, false); }
             return done(null, user);
@@ -40,6 +40,8 @@ createConnection().then(async connection => {
                 result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
             } else if (result !== null && result !== undefined) {
                 res.json(result);
+            } else {
+                res.error(new Error("Internal Server Error"))
             }
         };
 
@@ -56,12 +58,12 @@ createConnection().then(async connection => {
     app.listen(3000);
 
     let user = new User();
-    user.userName = "Timber";
+    user.username = "Timber";
     user.password = "dev1234";
     await connection.manager.save(user);
 
     let user2 = new User();
-    user2.userName = "Ramsey";
+    user2.username = "Ramsey";
     user2.password = "dev1234";
     await connection.manager.save(user2);
 

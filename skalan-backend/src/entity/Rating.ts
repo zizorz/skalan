@@ -27,7 +27,7 @@ export class Rating extends BaseEntity {
     date: Date;
 
     @ManyToOne(type => User, user => user.ratings, {nullable: false})
-    @JoinColumn({name: "userName"})
+    @JoinColumn({name: "username"})
     user: User;
 
     @BeforeInsert()

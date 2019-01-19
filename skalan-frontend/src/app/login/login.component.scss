@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-form {
+  width: 80%;
+}
+
+.input {
+  width: 100%;
+}
+
+.error {
+  margin-top: 20px;
+}
