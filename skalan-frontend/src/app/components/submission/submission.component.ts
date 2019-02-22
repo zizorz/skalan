@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { finalize, map, mergeMap } from 'rxjs/internal/operators';
-import { Rating } from '../models/Rating';
-import { ApiService } from '../api.service';
+import { Rating } from '../../models/Rating';
+import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
-import { FileInfo } from '../models/FileInfo';
+import { FileInfo } from '../../models/FileInfo';
 
 @Component({
   selector: 'app-submission',

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
-import { Rating } from './models/Rating';
+import { environment } from '../../environments/environment';
+import { Rating } from '../models/Rating';
 import { Observable } from 'rxjs';
-import { User } from './models/User';
-import { FileInfo } from './models/FileInfo';
+import { User } from '../models/User';
+import { FileInfo } from '../models/FileInfo';
 
 @Injectable({
   providedIn: 'root'

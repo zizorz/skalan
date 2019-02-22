@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { Rating } from '../models/Rating';
+import { ApiService } from '../../services/api.service';
+import { Rating } from '../../models/Rating';
 
 @Component({
   selector: 'app-list-ratings',

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListRatingsComponent } from './list-ratings/list-ratings.component';
-import { SkalaComponent } from './skala/skala.component';
-import { AuthGuard } from './auth.guard';
-import { SubmissionComponent } from './submission/submission.component';
-import { LoginComponent } from './login/login.component';
+import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+import { SkalaComponent } from './components/skala/skala.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SubmissionComponent } from './components/submission/submission.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/skala', pathMatch: 'full' },
