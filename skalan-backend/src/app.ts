@@ -10,6 +10,7 @@ import * as passport from "passport";
 import {BasicStrategy} from "passport-http";
 import * as bcrypt from "bcrypt";
 import * as fileUpload from "express-fileupload";
+import {classToPlain} from "class-transformer";
 
 createConnection().then(async connection => {
 
@@ -40,9 +41,9 @@ createConnection().then(async connection => {
         let handler = (req: Request, res: Response, next: Function) => {
             const result = (new (route.controller as any))[route.action](req, res, next);
             if (result instanceof Promise) {
-                result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
-            } else if (result !== null && result !== undefined) {
-                res.json(result);
+                result.then(result => res.json(classToPlain(result)));
+            } else {
+                res.json(classToPlain(result));
             }
         };
 
