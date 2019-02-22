@@ -21,6 +21,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "ts-node src/app.ts"
+    "start": "ts-node src/app.ts",
+    "createUser": "ts-node scripts/createUser.ts"
   }
 }
