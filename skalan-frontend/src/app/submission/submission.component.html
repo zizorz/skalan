@@ -29,8 +29,12 @@
       </mat-select>
     </mat-form-field>
 
+    <div class="field">
+      <input type="file" (change)="onFileChanged($event)">
+    </div>
+
     <div class="row">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Skicka in</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid || !file">Skicka in</button>
 
       <mat-spinner class="spinner" mode="indeterminate" *ngIf="loading" [diameter]="25"></mat-spinner>
     </div>

@@ -53,7 +53,9 @@ createConnection().then(async connection => {
         }
     });
 
-
+    if (process.env.NODE_ENV !== 'production') {
+        app.use('/images', express.static('images'));
+    }
 
     // start express server
     app.listen(3000);
@@ -74,7 +76,7 @@ createConnection().then(async connection => {
     rating.what = "Pizza Calzone";
     rating.where = "Pizzeria Milano, Stockholm";
     rating.user = user;
-    rating.imageUrl = "http://www.fnstatic.co.uk/images/content/recipe/calzone-pizza.jpg";
+    rating.imageUrl = "mock-image-1.jpg";
     await connection.manager.save(rating);
 
     rating = new Rating();
@@ -83,7 +85,7 @@ createConnection().then(async connection => {
     rating.what = "Pasta Alfredo";
     rating.where = "Vezzo, Umeå";
     rating.user = user2;
-    rating.imageUrl = 'https://icase.azureedge.net/imagevaultfiles/id_186593/cf_259/pasta-alfredo-724258.jpg';
+    rating.imageUrl = 'mock-image-2.jpg';
     await connection.manager.save(rating);
 
     console.log("Express server has started on port 3000");

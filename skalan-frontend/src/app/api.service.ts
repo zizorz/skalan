@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Rating } from './models/Rating';
 import { Observable } from 'rxjs';
-import {User} from "./models/User";
+import { User } from './models/User';
+import { FileInfo } from './models/FileInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,12 @@ export class ApiService {
 
   sendRating(rating: Rating) {
     return this.httpClient.post(`${this.baseUrl}/ratings`, rating);
+  }
+
+  uploadImage(file): Observable<FileInfo> {
+    const uploadData = new FormData();
+    uploadData.append('image', file, file.name);
+    return this.httpClient.post<FileInfo>(`${this.baseUrl}/upload`, uploadData);
   }
 
 }

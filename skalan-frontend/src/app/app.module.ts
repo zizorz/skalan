@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthInterceptor } from './interceptors/AuthInterceptor';
 import { ErrorInterceptor } from './interceptors/ErrorInterceptor';
+import { ImageSrcPipe } from './image-src.pipe';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ErrorInterceptor } from './interceptors/ErrorInterceptor';
     GradeComponent,
     SkalaComponent,
     SubmissionComponent,
-    LoginComponent
+    LoginComponent,
+    ImageSrcPipe
   ],
   imports: [
     BrowserModule,
