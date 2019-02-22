@@ -1,6 +1,7 @@
 import {UserController} from "./controller/UserController";
 import {RatingController} from "./controller/RatingController";
 import {LoginController} from "./controller/LoginController";
+import {ImageController} from "./controller/ImageController";
 
 export const Routes = [
     //Login
@@ -62,6 +63,15 @@ export const Routes = [
         route: "/ratings",
         controller: RatingController,
         action: "save",
+        auth: true
+    },
+
+    //File
+    {
+        method: "post",
+        route: "/upload",
+        controller: ImageController,
+        action: "upload",
         auth: true
     }
 ];

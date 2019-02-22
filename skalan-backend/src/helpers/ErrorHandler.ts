@@ -18,7 +18,7 @@ export class ErrorHandler {
         }
         switch (code) {
             case ErrorCode.Unauthorized:
-                return {code: code, message: "Unathorized"};
+                return {code: code, message: "Unauthorized"};
             case ErrorCode.NotFound:
                 return {code: code, message: "Not Found"};
             case ErrorCode.BadRequest:

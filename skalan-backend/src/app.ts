@@ -9,6 +9,7 @@ import {Rating} from "./entity/Rating";
 import * as passport from "passport";
 import {BasicStrategy} from "passport-http";
 import * as bcrypt from "bcrypt";
+import * as fileUpload from "express-fileupload";
 
 createConnection().then(async connection => {
 
@@ -21,6 +22,8 @@ createConnection().then(async connection => {
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
         next();
     });
+
+    app.use(fileUpload());
 
     // setup passport
     passport.use(new BasicStrategy(
