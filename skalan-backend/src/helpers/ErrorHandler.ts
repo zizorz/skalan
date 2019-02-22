@@ -12,6 +12,7 @@ export enum ErrorCode {
 export class ErrorHandler {
 
     static handleError(response: Response, code: ErrorCode, error: Error = null) {
+        console.log(error);
         response.status(code);
         if (code == null) {
             response.status(ErrorCode.InternalServerError);

@@ -23,7 +23,7 @@ export class RatingController {
             rating.user = request.user;
             return this.ratingRepository.save(rating);
         } catch(error) {
-            ErrorHandler.handleError(response, ErrorCode.InternalServerError);
+            ErrorHandler.handleError(response, ErrorCode.InternalServerError, error);
         }
     }
 }

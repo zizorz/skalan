@@ -7,7 +7,6 @@ export class ImageController {
     async upload(request: Request, response: Response, next: NextFunction) {
 
         const file = request.files && request.files.image;
-        console.log(file);
         if (!file) {
             return ErrorHandler.handleError(response, ErrorCode.BadRequest);
         }
@@ -16,8 +15,7 @@ export class ImageController {
             const result = await this.saveFile(file);
             return {filename: result};
         } catch (err) {
-            console.log(err);
-            return ErrorHandler.handleError(response, ErrorCode.InternalServerError);
+            return ErrorHandler.handleError(response, ErrorCode.InternalServerError, err);
         }
     }
 

@@ -27,7 +27,7 @@ export class LoginController {
                 return ErrorHandler.handleError(response, ErrorCode.Unauthorized)
             }
         } catch (error) {
-            return ErrorHandler.handleError(response, ErrorCode.InternalServerError);
+            return ErrorHandler.handleError(response, ErrorCode.InternalServerError, error);
         }
     }
 }

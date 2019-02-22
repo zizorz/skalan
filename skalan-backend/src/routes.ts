@@ -14,34 +14,34 @@ export const Routes = [
     },
 
     //User
-    {
-        method: "get",
-        route: "/users",
-        controller: UserController,
-        action: "all",
-        auth: true
-    },
-    {
-        method: "get",
-        route: "/users/:id",
-        controller: UserController,
-        action: "one",
-        auth: true
-    },
-    {
-        method: "post",
-        route: "/users",
-        controller: UserController,
-        action: "save",
-        auth: true,
-    },
-    {
-        method: "delete",
-        route: "/users",
-        controller: UserController,
-        action: "remove",
-        auth: true
-    },
+    // {
+    //     method: "get",
+    //     route: "/users",
+    //     controller: UserController,
+    //     action: "all",
+    //     auth: true
+    // },
+    // {
+    //     method: "get",
+    //     route: "/users/:id",
+    //     controller: UserController,
+    //     action: "one",
+    //     auth: true
+    // },
+    // {
+    //     method: "post",
+    //     route: "/users",
+    //     controller: UserController,
+    //     action: "save",
+    //     auth: true,
+    // },
+    // {
+    //     method: "delete",
+    //     route: "/users",
+    //     controller: UserController,
+    //     action: "remove",
+    //     auth: true
+    // },
 
     //Rating
     {
