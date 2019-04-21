@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "ts-node src/app.ts",
-    "createUser": "ts-node scripts/createUser.ts"
+    "createUser": "ts-node scripts/createUser.ts",
+    "start-prod": "NODE_ENV=production ts-node src/app.ts"
   }
 }
