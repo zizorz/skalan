@@ -61,33 +61,6 @@ createConnection().then(async connection => {
     // start express server
     app.listen(3000);
 
-    let user = new User();
-    user.username = "Timber";
-    user.password = "dev1234";
-    await connection.manager.save(user);
-
-    let user2 = new User();
-    user2.username = "Ramsey";
-    user2.password = "dev1234";
-    await connection.manager.save(user2);
-
-    let rating = new Rating();
-    rating.grade = 5;
-    rating.motivation = "Jag åt en Calzone med rådjur. Pizzakanten var utsökt med en krispig botten. Tomatsåsen var lagom kraftig men aningen för söt. Köttet var skivat i fina tunna skivor men saknade smak. Som helhet var det en bra måltid.";
-    rating.what = "Pizza Calzone";
-    rating.where = "Pizzeria Milano, Stockholm";
-    rating.user = user;
-    rating.imageUrl = "mock-image-1.jpg";
-    await connection.manager.save(rating);
-
-    rating = new Rating();
-    rating.grade = 9;
-    rating.motivation = "Pasta Alfredo är båda gott och går snabbt att göra. Rätten uppskattas av vuxna och barn och passar både till vardagsmiddagen och till fest.";
-    rating.what = "Pasta Alfredo";
-    rating.where = "Vezzo, Umeå";
-    rating.user = user2;
-    rating.imageUrl = 'mock-image-2.jpg';
-    await connection.manager.save(rating);
 
     console.log("Express server has started on port 3000");
 
