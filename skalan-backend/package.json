@@ -13,6 +13,7 @@
     "class-transformer": "^0.1.8",
     "express": "^4.15.4",
     "express-fileupload": "^1.1.1-alpha.3",
+    "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "pg": "^7.3.0",

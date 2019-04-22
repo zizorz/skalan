@@ -11,12 +11,14 @@ import {BasicStrategy} from "passport-http";
 import * as bcrypt from "bcrypt";
 import * as fileUpload from "express-fileupload";
 import {classToPlain} from "class-transformer";
+import * as morgan from "morgan";
 
 createConnection().then(async connection => {
 
     // create express app
     const app = express();
     app.use(bodyParser.json());
+    app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
     app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
