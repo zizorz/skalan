@@ -11,7 +11,7 @@ export class ListRatingsComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  private ratings: Rating[];
+  ratings: Rating[];
 
   ngOnInit() {
     this.apiService.getRatings().subscribe(ratings => {

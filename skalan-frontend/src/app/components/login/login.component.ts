@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
-  private failed = false;
-  private loading = false;
+  failed = false;
+  loading = false;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 

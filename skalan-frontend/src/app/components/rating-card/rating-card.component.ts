@@ -8,7 +8,7 @@ import { Rating } from '../../models/Rating';
 })
 export class RatingCardComponent implements OnInit {
 
-  @Input() rating: Rating[];
+  @Input() rating: Rating;
 
   constructor() { }
 

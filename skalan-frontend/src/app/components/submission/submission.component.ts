@@ -15,9 +15,9 @@ export class SubmissionComponent implements OnInit {
 
   form: FormGroup;
 
-  private failed = false;
-  private loading = false;
-  private file = null;
+  failed = false;
+  loading = false;
+  file = null;
 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) { }
 
