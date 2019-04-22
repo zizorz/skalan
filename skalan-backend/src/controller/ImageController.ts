@@ -1,6 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 import {ErrorCode, ErrorHandler} from "../helpers/ErrorHandler";
 import * as uuidv1 from "uuid/v1";
+import * as sharp  from "sharp";
 
 export class ImageController {
 
@@ -23,12 +24,15 @@ export class ImageController {
         return new Promise<string>((resolve, reject) => {
             const filename = `${uuidv1()}.jpg`;
             const path = `${process.cwd()}/images/${filename}`;
-            file.mv(path, (err) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(filename);
-            });
+
+	    sharp(file.data)
+	      .resize(432)
+	      .toFile(path, (err, info) => {
+	           if (err) {
+                       reject(err);
+		   }
+                   resolve(filename);
+	      });
         });
     }
 }
